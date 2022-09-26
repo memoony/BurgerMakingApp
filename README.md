@@ -4,7 +4,7 @@ Bu proje, Angular CLI sürüm 13.1.2 ile oluşturulmuştur.
 
 ## Kurulum ve Projeyi Çalıştırma
 
-İlk olarak `npm install` komutu çalıştırılarak gerekli paketlerin yüklenmesi sağlanmalıdır. Ardından `ng serve` komutu ile proje çalıştırılır ve sonrasında `http://localhost:4200/` üzerinden görüntülenebilir.
+İlk olarak `npm install` komutu çalıştırılarak gerekli paketlerin yüklenmesi sağlanmalıdır. Ardından `ng serve` komutu ile proje çalıştırılır ve `http://localhost:4200/` üzerinden görüntülenebilir.
 
 ## Proje Hk.
 
