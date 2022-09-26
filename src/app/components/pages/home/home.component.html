@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="new-order-card" *ngIf="!isShowOrderForm">
+    <ul>
+      <li>
+        <a (click)="showForm()">
+          <img src="/assets/images/order.png" alt="Sipariş Oluştur" />
+          <div class="content">
+            <div class="title">Yeni Sipariş</div>
+            <div class="description">
+              <span>Yeni bir sipariş oluşturmak için tıklayınız.</span>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <ng-container *ngIf="isShowOrderForm">
+    <div class="row">
+      <div class="col-md-6" style="margin: auto">
+        <div class="card p-3 mb-2">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <div class="icon">
+                <img src="/assets/images/hamburger.png" />
+              </div>
+              <div class="ms-2 c-details">
+                <h6 class="mb-0">
+                  Sipariş Hazırla (Hamburger, Patates ve İçecek)
+                </h6>
+              </div>
+            </div>
+            <div class="badge"><span>Design</span></div>
+          </div>
+          <div class="mt-5">
+            <form name="hamburgerForm" [formGroup]="hamburgerForm">
+              <div class="form-group">
+                <label for="meatType">Et Türü</label>
+                <select
+                  class="form-control"
+                  id="meatType"
+                  required
+                  (change)="onMeatTypeChange($event)"
+                  formControlName="meatType"
+                >
+                  <option value="">Et Türü Seçiniz</option>
+                  <option
+                    *ngFor="let meatType of meatTypes"
+                    [value]="meatType.id"
+                  >
+                    {{ meatType.name }}
+                  </option>
+                </select>
+              </div>
+              <br />
+              <div class="form-group" *ngIf="isRareType">
+                <label for="rareType">Pişme Derecesi</label>
+                <select
+                  class="form-control"
+                  id="rareType"
+                  required
+                  (change)="onRareTypeChange($event)"
+                  formControlName="rareType"
+                >
+                  <option value="">Pişme Derecesini Seçiniz</option>
+                  <option value="2">Az Pişmiş</option>
+                  <option value="3">Orta Pişmiş</option>
+                  <option value="4">Çok Pişmiş</option>
+                </select>
+              </div>
+              <br />
+              <div style="text-align: center">
+                <button
+                  class="btn btn-primary btn-lg btn-radius"
+                  [disabled]="hamburgerForm.invalid || isAllCooked"
+                  (click)="prepareTheOrder(hamburgerForm.value)"
+                >
+                  Sipariş Hazırla
+                </button>
+              </div>
+              <div
+                style="text-align: center; margin-top: 15px"
+                *ngIf="isAllCooked"
+              >
+                <button
+                  class="btn btn-success btn-lg btn-radius"
+                  [disabled]="hamburgerForm.invalid || isTrayReady"
+                  (click)="putOnTray()"
+                >
+                  Sos ve Ürünleri Tepsiye Koy
+                </button>
+              </div>
+              <div
+                style="text-align: center; margin-top: 15px"
+                *ngIf="isTrayReady"
+              >
+                <button
+                  class="btn btn-info btn-lg btn-radius"
+                  [disabled]="hamburgerForm.invalid || isServe"
+                  (click)="serveTheCustomer()"
+                >
+                  Müşteriye Servis Et
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
