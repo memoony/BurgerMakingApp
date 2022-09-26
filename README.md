@@ -1,27 +1,17 @@
 # BurgerMaking
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+Bu proje, Angular CLI sürüm 13.1.2 ile oluşturulmuştur.
 
-## Development server
+## Kurulum ve Projeyi Çalıştırma
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+İlk olarak `npm install` komutu çalıştırılarak gerekli paketlerin yüklenmesi sağlanmalıdır. Ardından `ng serve` komutu ile proje çalıştırılır ve sonrasında `http://localhost:4200/` üzerinden görüntülenebilir.
 
-## Code scaffolding
+## Proje Hk.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Proje tek bir sayfa üzerinden ilerlemektedir. Verilen malzeme listesindeki tüm malzemeler `Local Storage` üzerinde tutulmaktadır. İlk olarak `Yeni Sipariş` butonuna tıklanır. Bu aşamada gerekli malzeme kontrolleri yapıldıktan sonra ilgili sipariş formu ekrana gelecektir.
 
-## Build
+İlgili sipariş formundan et türü seçildikten sonra `Sipariş Hazırla` butonu üzerinden hamburger, patates ve içecek hazırlanmaktadır. Bu aşamadan sonra `Local Storage` üzerindeki malzeme miktarları güncellenmektedir.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Sipariş hazırlama işleminden sonra ekranda çıkacak olan `Sos ve Ürünleri Tepsiye Koy` butonu üzerinden ürünlerin tepsiye konulması sağlanmaktadır. Bu aşamadan sonra `Local Storage` üzerindeki sos miktarı da güncellenecektir.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Ürünler tepsiye konulduktan sonra ise ekranda çıkacak olan `Müşteriye Sipariş Et` butonu ile ürün müşteriye sipariş edilir. Uyarı mesajının ardından sayfa yenilenerek tekrar ilk adımdaki `Yeni Sipariş` butonunun bulunduğu adıma geçilir.
